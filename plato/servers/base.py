@@ -247,7 +247,7 @@ class Server:
             # all selected clients have already reported.
 
             # Except for these two cases, we need to exclude the clients who are still
-            # traing.
+            # training.
             training_client_ids = [
                 self.training_clients[client_id]
                 for client_id in list(self.training_clients.keys())
@@ -304,7 +304,7 @@ class Server:
 
     def choose_clients(self, clients_pool, clients_count):
         """ Choose a subset of the clients to participate in each round. """
-        assert self.clients_per_round <= len(self.clients_pool)
+        assert clients_count <= len(clients_pool)
 
         # Select clients randomly
         return random.sample(clients_pool, clients_count)
